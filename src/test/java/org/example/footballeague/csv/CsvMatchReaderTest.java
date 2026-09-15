@@ -15,8 +15,8 @@ public class CsvMatchReaderTest {
         Path file = Files.createTempFile("matches", ".csv");
 
         Files.write(file, (
-                "homeTeam,awayTeam,homeGoals,awayGoals\n" +
-                        "Liverpool,Arsenal,2,1\n"
+                "match_id,season,competition,matchweek,date,home_team,away_team,home_goals,away_goals,result\n" +
+                        "1,1974/75,English First Division,1,1974-08-17,Liverpool,Arsenal,2,1,H\n"
         ).getBytes());
 
         CsvMatchReader reader = new CsvMatchReader();
@@ -27,6 +27,7 @@ public class CsvMatchReaderTest {
 
         MatchResult match = matches.get(0);
 
+        assertEquals(1, match.matchWeek);
         assertEquals("Liverpool", match.homeTeam);
         assertEquals("Arsenal", match.awayTeam);
         assertEquals(2, match.homeGoals);

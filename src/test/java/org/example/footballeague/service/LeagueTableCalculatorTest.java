@@ -30,13 +30,13 @@ public class LeagueTableCalculatorTest {
                 .findFirst()
                         .orElseThrow();
         assertEquals(2, manCity.points);
-        assertEquals(1, manUtd.points);
+        assertEquals(0, manUtd.points);
         assertEquals(1, manCity.won);
         assertEquals(1, manUtd.lost);
-        assertEquals(1, manCity.draw);
+        assertEquals(0, manCity.draw);
         assertEquals(0, manUtd.draw);
         assertEquals(2, manCity.goalsFor);
-        assertEquals(1, manUtd.goalsAgainst);
+        assertEquals(2, manUtd.goalsAgainst);
 
     }
 }

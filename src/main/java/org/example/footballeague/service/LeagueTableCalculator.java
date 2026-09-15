@@ -3,12 +3,12 @@ package org.example.footballeague.service;
 import org.example.footballeague.domain.MatchResult;
 import org.example.footballeague.domain.TeamStanding;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class LeagueTableCalculator {
-    TeamStanding standing = new TeamStanding();
     // match result
     public List<TeamStanding> calculateLeagueTable(List<MatchResult> matches) {
         Map<String, TeamStanding> teamStandings = new HashMap<>();
@@ -24,15 +24,25 @@ public class LeagueTableCalculator {
 
         }
 
-        return null;
+        List<TeamStanding> result = new ArrayList<>(teamStandings.values());
+
+        result.sort((a, b) -> {
+            if (a.points != b.points) {
+                return Integer.compare(b.points, a.points);
+            }
+
+            return Double.compare(b.getGoalAverage(), a.getGoalAverage());
+        });
+
+        return result;
     };
 
-    private TeamStanding getStanding(Map<String, TeamStanding> standings,String teamName) {
-        if (!standings.containsKey(teamName)) {
-            standings.put(teamName, new TeamStanding());
-        }
-        return standings.get(teamName);
-
+    private TeamStanding getStanding(Map<String, TeamStanding> standings, String teamName) {
+        return standings.computeIfAbsent(teamName, name -> {
+            TeamStanding standing = new TeamStanding();
+            standing.teamName = name;
+            return standing;
+        });
     }
 
     private void updateGoals(TeamStanding teamStanding, int goalsFor, int goalsAgainst){

@@ -14,4 +14,11 @@ public class TeamStanding {
         return goalsFor - goalsAgainst;
     }
 
+    public double getGoalAverage() {
+        if (goalsAgainst == 0){
+            return goalsFor;
+        }
+        return (double) goalsFor / played;
+    }
+
 }

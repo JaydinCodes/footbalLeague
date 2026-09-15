@@ -30,44 +30,61 @@ public class CsvMatchReader {
                     firstLine = false;
 
                     if (line.equalsIgnoreCase(
-                            "homeTeam,awayTeam,homeGoals,awayGoals")) {
+                            "match_id,season,competition,matchweek,date,home_team,away_team,home_goals,away_goals,result")) {
                         continue;
                     }
                 }
 
                 String[] columns = line.split(",", -1);
 
-                if (columns.length != 4) {
+                if (columns.length != 10) {
                     throw new IllegalArgumentException(
-                            "Invalid CSV row: " + line);
+                            "Invalid CSV row: " + line
+                    );
                 }
 
-                String homeTeam = columns[0].trim();
-                String awayTeam = columns[1].trim();
+                int matchweek;
+
+                try {
+                    matchweek = Integer.parseInt(columns[3].trim());
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException(
+                            "Matchweek must be a valid integer: " + line,
+                            e
+                    );
+                }
+
+                String homeTeam = columns[5].trim();
+                String awayTeam = columns[6].trim();
 
                 if (homeTeam.isEmpty() || awayTeam.isEmpty()) {
                     throw new IllegalArgumentException(
-                            "Team name cannot be empty: " + line);
+                            "Team name cannot be empty: " + line
+                    );
                 }
 
                 int homeGoals;
                 int awayGoals;
 
                 try {
-                    homeGoals = Integer.parseInt(columns[2].trim());
-                    awayGoals = Integer.parseInt(columns[3].trim());
+                    homeGoals = Integer.parseInt(columns[7].trim());
+                    awayGoals = Integer.parseInt(columns[8].trim());
                 } catch (NumberFormatException e) {
                     throw new IllegalArgumentException(
-                            "Scores must be valid integers: " + line, e);
+                            "Scores must be valid integers: " + line,
+                            e
+                    );
                 }
 
                 if (homeGoals < 0 || awayGoals < 0) {
                     throw new IllegalArgumentException(
-                            "Scores cannot be negative: " + line);
+                            "Scores cannot be negative: " + line
+                    );
                 }
 
                 MatchResult match = new MatchResult();
 
+                match.matchWeek = matchweek;
                 match.homeTeam = homeTeam;
                 match.awayTeam = awayTeam;
                 match.homeGoals = homeGoals;
