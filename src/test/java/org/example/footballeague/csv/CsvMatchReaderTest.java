@@ -1,4 +1,5 @@
 package org.example.footballeague.csv;
+
 import org.example.footballeague.domain.MatchResult;
 import org.junit.jupiter.api.Test;
 
@@ -7,17 +8,22 @@ import java.nio.file.Path;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CsvMatchReaderTest {
 
     @Test
-    void readMatchesFromCsv() throws Exception{
+    void readsValidCsv() throws Exception {
+
         Path file = Files.createTempFile("matches", ".csv");
 
-        Files.write(file, (
-                "match_id,season,competition,matchweek,date,home_team,away_team,home_goals,away_goals,result\n" +
-                        "1,1974/75,English First Division,1,1974-08-17,Liverpool,Arsenal,2,1,H\n"
-        ).getBytes());
+        Files.write(
+                file,
+                (
+                        "match_id,season,competition,matchweek,date,home_team,away_team,home_goals,away_goals,result\n" +
+                                "1,1974/75,English First Division,1,1974-08-17,Liverpool,Arsenal,2,1,H\n"
+                ).getBytes()
+        );
 
         CsvMatchReader reader = new CsvMatchReader();
 
@@ -27,13 +33,71 @@ public class CsvMatchReaderTest {
 
         MatchResult match = matches.get(0);
 
-        assertEquals(1, match.matchWeek);
-        assertEquals("Liverpool", match.homeTeam);
-        assertEquals("Arsenal", match.awayTeam);
-        assertEquals(2, match.homeGoals);
-        assertEquals(1, match.awayGoals);
+        assertEquals(1, match.getMatchWeek());
+        assertEquals("Liverpool", match.getHomeTeam());
+        assertEquals("Arsenal", match.getAwayTeam());
+        assertEquals(2, match.getHomeGoals());
+        assertEquals(1, match.getAwayGoals());
 
-        Files.delete(file);
+        Files.deleteIfExists(file);
     }
 
+    @Test
+    void rejectsInvalidColumnCount() throws Exception {
+
+        Path file = Files.createTempFile("matches", ".csv");
+
+        Files.write(
+                file,
+                (
+                        "match_id,season,competition,matchweek,date,home_team,away_team,home_goals,away_goals,result\n" +
+                                "1,1974/75,English First Division,1,1974-08-17,Liverpool,Arsenal,2\n"
+                ).getBytes()
+        );
+
+        CsvMatchReader reader = new CsvMatchReader();
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> reader.read(file)
+        );
+
+        Files.deleteIfExists(file);
+    }
+
+    @Test
+    void rejectsInvalidScore() throws Exception {
+
+        Path file = Files.createTempFile("matches", ".csv");
+
+        Files.write(
+                file,
+                (
+                        "match_id,season,competition,matchweek,date,home_team,away_team,home_goals,away_goals,result\n" +
+                                "1,1974/75,English First Division,1,1974-08-17,Liverpool,Arsenal,abc,1,H\n"
+                ).getBytes()
+        );
+
+        CsvMatchReader reader = new CsvMatchReader();
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> reader.read(file)
+        );
+
+        Files.deleteIfExists(file);
+    }
+
+    @Test
+    void rejectsMissingInputFile() {
+
+        CsvMatchReader reader = new CsvMatchReader();
+
+        Path file = Path.of("does-not-exist.csv");
+
+        assertThrows(
+                java.io.IOException.class,
+                () -> reader.read(file)
+        );
+    }
 }

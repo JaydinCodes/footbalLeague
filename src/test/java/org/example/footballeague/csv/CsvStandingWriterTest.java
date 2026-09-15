@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,25 +14,36 @@ public class CsvStandingWriterTest {
 
     @Test
     void writesStandingToCsv() throws Exception {
-        TeamStanding standing = new TeamStanding();
-        standing.teamName = "Liverpool";
-        standing.played = 10;
-        standing.won = 6;
-        standing.draw = 2;
-        standing.lost = 2;
-        standing.goalsFor = 18;
-        standing.goalsAgainst = 10;
-        standing.points = 14;
 
-        List<TeamStanding> standings = new ArrayList<>();
-        standings.add(standing); // <-- was missing
+        TeamStanding standing =
+                new TeamStanding("Liverpool");
 
-        Path file = Files.createTempFile("test", ".csv");
-        CsvStandingWriter writer = new CsvStandingWriter();
+        standing.recordMatch(3, 1);
+        standing.recordMatch(3, 1);
+        standing.recordMatch(2, 2);
+        standing.recordMatch(0, 2);
+        standing.recordMatch(4, 4);
+        standing.recordMatch(2, 0);
+        standing.recordMatch(2, 0);
+        standing.recordMatch(1, 1);
+        standing.recordMatch(1, 0);
+        standing.recordMatch(0, 0);
+
+        List<TeamStanding> standings =
+                Collections.singletonList(standing);
+
+        Path file =
+                Files.createTempFile("standings", ".csv");
+
+        CsvStandingWriter writer =
+                new CsvStandingWriter();
 
         writer.write(standings, file);
 
-        List<String> lines = Files.readAllLines(file);
+        List<String> lines =
+                Files.readAllLines(file);
+
+        assertEquals(2, lines.size());
 
         assertEquals(
                 "Pos,Team,P,W,D,L,F,A,GAvg,Pts",
@@ -40,11 +51,10 @@ public class CsvStandingWriterTest {
         );
 
         assertEquals(
-                "1,Liverpool,10,6,2,2,18,10,1.800,14",
+                "1,Liverpool,10,5,4,1,18,11,1.636,14",
                 lines.get(1)
         );
 
         Files.deleteIfExists(file);
     }
-
 }

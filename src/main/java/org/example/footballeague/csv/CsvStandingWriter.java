@@ -30,19 +30,19 @@ public class CsvStandingWriter {
 
                 writer.write(
                         position + "," +
-                                standing.teamName + "," +
-                                standing.played + "," +
-                                standing.won + "," +
-                                standing.draw + "," +
-                                standing.lost + "," +
-                                standing.goalsFor + "," +
-                                standing.goalsAgainst + "," +
+                                standing.getTeamName() + "," +
+                                standing.getPlayed() + "," +
+                                standing.getWon() + "," +
+                                standing.getDraw() + "," +
+                                standing.getLost() + "," +
+                                standing.getGoalsFor() + "," +
+                                standing.getGoalsAgainst() + "," +
                                 String.format(
                                         Locale.US,
                                         "%.3f",
                                         standing.getGoalAverage()
                                 ) + "," +
-                                standing.points
+                                standing.getPoints()
                 );
 
                 writer.newLine();

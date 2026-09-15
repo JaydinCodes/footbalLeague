@@ -6,36 +6,34 @@ import org.example.footballeague.domain.MatchResult;
 import org.example.footballeague.domain.TeamStanding;
 import org.example.footballeague.service.LeagueTableCalculator;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class LeagueApplication {
 
     public static void main(String[] args) {
+
         if (args.length != 2) {
-            System.out.println("Usage: java -jar football-league.jar <input-file> <output-file>");
+            printUsage();
             System.exit(1);
         }
 
-        Path inputFile = Path.of(args[0]);
-        Path outputFile = Path.of(args[1]);
+        Path inputFile = Paths.get(args[0]);
+        Path outputFile = Paths.get(args[1]);
 
-        try{
-            CsvMatchReader reader = new CsvMatchReader();
-            CsvStandingWriter writer = new CsvStandingWriter();
-
-            LeagueTableCalculator calculator = new LeagueTableCalculator();
-
-            List<MatchResult> matches = reader.read(inputFile);
-            List<TeamStanding> standings = calculator.calculateLeagueTable(matches);
-
-            writer.write(standings, outputFile);
+        try {
+            run(inputFile, outputFile);
 
             System.out.println(
                     "League standings successfully written to: "
                             + outputFile
             );
-        } catch (Exception e){
+
+        } catch (IOException | IllegalArgumentException e) {
+
             System.err.println(
                     "Error: " + e.getMessage()
             );
@@ -44,4 +42,45 @@ public class LeagueApplication {
         }
     }
 
+    private static void run(
+            Path inputFile,
+            Path outputFile) throws IOException {
+
+        CsvMatchReader reader = new CsvMatchReader();
+        CsvStandingWriter writer = new CsvStandingWriter();
+        LeagueTableCalculator calculator =
+                new LeagueTableCalculator();
+
+        List<MatchResult> matches =
+                reader.read(inputFile);
+
+        List<TeamStanding> standings =
+                calculator.calculate(matches);
+
+        createParentDirectory(outputFile);
+
+        writer.write(
+                standings,
+                outputFile
+        );
+    }
+
+    private static void createParentDirectory(
+            Path outputFile) throws IOException {
+
+        Path parentDirectory =
+                outputFile.getParent();
+
+        if (parentDirectory != null) {
+            Files.createDirectories(parentDirectory);
+        }
+    }
+
+    private static void printUsage() {
+
+        System.err.println(
+                "Usage: java -jar footbalLeague.jar "
+                        + "<input-file> <output-file>"
+        );
+    }
 }
