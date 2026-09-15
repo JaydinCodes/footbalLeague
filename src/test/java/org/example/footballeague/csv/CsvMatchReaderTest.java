@@ -1,0 +1,38 @@
+package org.example.footballeague.csv;
+import org.example.footballeague.domain.MatchResult;
+import org.junit.jupiter.api.Test;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CsvMatchReaderTest {
+
+    @Test
+    void readMatchesFromCsv() throws Exception{
+        Path file = Files.createTempFile("matches", ".csv");
+
+        Files.write(file, (
+                "homeTeam,awayTeam,homeGoals,awayGoals\n" +
+                        "Liverpool,Arsenal,2,1\n"
+        ).getBytes());
+
+        CsvMatchReader reader = new CsvMatchReader();
+
+        List<MatchResult> matches = reader.read(file);
+
+        assertEquals(1, matches.size());
+
+        MatchResult match = matches.get(0);
+
+        assertEquals("Liverpool", match.homeTeam);
+        assertEquals("Arsenal", match.awayTeam);
+        assertEquals(2, match.homeGoals);
+        assertEquals(1, match.awayGoals);
+
+        Files.delete(file);
+    }
+
+}
