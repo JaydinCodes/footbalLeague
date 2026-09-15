@@ -1,0 +1,108 @@
+match_id,season,competition,matchweek,date,home_team,away_team,home_goals,away_goals,result
+1,1974-75,English First Division,1,1974-08-17,Birmingham City,Middlesbrough,0,3,A
+2,1974-75,English First Division,1,1974-08-17,Stoke City,Leeds United,3,0,H
+3,1974-75,English First Division,1,1974-08-17,Sheffield United,Queens Park Rangers,1,1,D
+4,1974-75,English First Division,1,1974-08-17,Newcastle United,Coventry City,3,2,H
+5,1974-75,English First Division,1,1974-08-17,Manchester City,West Ham United,4,0,H
+6,1974-75,English First Division,1,1974-08-17,Luton Town,Liverpool,1,2,A
+7,1974-75,English First Division,1,1974-08-17,Leicester City,Arsenal,0,1,A
+8,1974-75,English First Division,1,1974-08-17,Everton,Derby County,0,0,D
+9,1974-75,English First Division,1,1974-08-17,Chelsea,Carlisle United,0,2,A
+10,1974-75,English First Division,1,1974-08-17,Tottenham Hotspur,Ipswich Town,0,1,A
+11,1974-75,English First Division,1,1974-08-17,Burnley,Wolverhampton Wanderers,1,2,A
+12,1974-75,English First Division,2,1974-08-19,West Ham United,Luton Town,2,0,H
+13,1974-75,English First Division,2,1974-08-20,Everton,Stoke City,2,1,H
+14,1974-75,English First Division,2,1974-08-20,Birmingham City,Leicester City,3,4,A
+15,1974-75,English First Division,2,1974-08-20,Wolverhampton Wanderers,Liverpool,0,0,D
+16,1974-75,English First Division,2,1974-08-20,Middlesbrough,Carlisle United,0,2,A
+17,1974-75,English First Division,2,1974-08-20,Arsenal,Ipswich Town,0,1,A
+18,1974-75,English First Division,2,1974-08-21,Leeds United,Queens Park Rangers,0,1,A
+19,1974-75,English First Division,2,1974-08-21,Chelsea,Burnley,3,3,D
+20,1974-75,English First Division,2,1974-08-21,Derby County,Coventry City,1,1,D
+21,1974-75,English First Division,2,1974-08-21,Manchester City,Tottenham Hotspur,1,0,H
+22,1974-75,English First Division,2,1974-08-21,Newcastle United,Sheffield United,2,2,D
+23,1974-75,English First Division,3,1974-08-24,Leeds United,Birmingham City,1,0,H
+24,1974-75,English First Division,3,1974-08-24,Arsenal,Manchester City,4,0,H
+25,1974-75,English First Division,3,1974-08-24,West Ham United,Everton,2,3,A
+26,1974-75,English First Division,3,1974-08-24,Queens Park Rangers,Stoke City,0,1,A
+27,1974-75,English First Division,3,1974-08-24,Middlesbrough,Luton Town,1,1,D
+28,1974-75,English First Division,3,1974-08-24,Liverpool,Leicester City,2,1,H
+29,1974-75,English First Division,3,1974-08-24,Ipswich Town,Burnley,2,0,H
+30,1974-75,English First Division,3,1974-08-24,Derby County,Sheffield United,2,0,H
+31,1974-75,English First Division,3,1974-08-24,Coventry City,Chelsea,1,3,A
+32,1974-75,English First Division,3,1974-08-24,Carlisle United,Tottenham Hotspur,1,0,H
+33,1974-75,English First Division,3,1974-08-24,Wolverhampton Wanderers,Newcastle United,4,2,H
+34,1974-75,English First Division,4,1974-08-27,Queens Park Rangers,Leeds United,1,1,D
+35,1974-75,English First Division,4,1974-08-27,Burnley,Chelsea,1,2,A
+36,1974-75,English First Division,4,1974-08-27,Sheffield United,Newcastle United,2,1,H
+37,1974-75,English First Division,4,1974-08-27,Liverpool,Wolverhampton Wanderers,2,0,H
+38,1974-75,English First Division,4,1974-08-27,Ipswich Town,Arsenal,3,0,H
+39,1974-75,English First Division,4,1974-08-27,Coventry City,Derby County,1,1,D
+40,1974-75,English First Division,4,1974-08-27,Carlisle United,Middlesbrough,0,1,A
+41,1974-75,English First Division,4,1974-08-28,Leicester City,Birmingham City,1,1,D
+42,1974-75,English First Division,4,1974-08-28,Luton Town,West Ham United,0,0,D
+43,1974-75,English First Division,4,1974-08-28,Stoke City,Everton,1,1,D
+44,1974-75,English First Division,4,1974-08-28,Tottenham Hotspur,Manchester City,1,2,A
+45,1974-75,English First Division,5,1974-08-31,Manchester City,Leeds United,2,1,H
+46,1974-75,English First Division,5,1974-08-31,Birmingham City,Wolverhampton Wanderers,1,1,D
+47,1974-75,English First Division,5,1974-08-31,Stoke City,Middlesbrough,1,1,D
+48,1974-75,English First Division,5,1974-08-31,Sheffield United,Ipswich Town,3,1,H
+49,1974-75,English First Division,5,1974-08-31,Newcastle United,West Ham United,2,0,H
+50,1974-75,English First Division,5,1974-08-31,Luton Town,Queens Park Rangers,1,1,D
+51,1974-75,English First Division,5,1974-08-31,Leicester City,Carlisle United,1,1,D
+52,1974-75,English First Division,5,1974-08-31,Everton,Arsenal,2,1,H
+53,1974-75,English First Division,5,1974-08-31,Chelsea,Liverpool,0,3,A
+54,1974-75,English First Division,5,1974-08-31,Burnley,Coventry City,3,0,H
+55,1974-75,English First Division,5,1974-08-31,Tottenham Hotspur,Derby County,2,0,H
+56,1974-75,English First Division,6,1974-09-07,Leeds United,Luton Town,1,1,D
+57,1974-75,English First Division,6,1974-09-07,Arsenal,Burnley,0,1,A
+58,1974-75,English First Division,6,1974-09-07,West Ham United,Sheffield United,1,2,A
+59,1974-75,English First Division,6,1974-09-07,Queens Park Rangers,Birmingham City,0,1,A
+60,1974-75,English First Division,6,1974-09-07,Middlesbrough,Chelsea,1,1,D
+61,1974-75,English First Division,6,1974-09-07,Liverpool,Tottenham Hotspur,5,2,H
+62,1974-75,English First Division,6,1974-09-07,Ipswich Town,Everton,1,0,H
+63,1974-75,English First Division,6,1974-09-07,Derby County,Newcastle United,2,2,D
+64,1974-75,English First Division,6,1974-09-07,Coventry City,Manchester City,2,2,D
+65,1974-75,English First Division,6,1974-09-07,Carlisle United,Stoke City,0,2,A
+66,1974-75,English First Division,6,1974-09-07,Wolverhampton Wanderers,Leicester City,1,1,D
+67,1974-75,English First Division,7,1974-09-14,Burnley,Leeds United,2,1,H
+68,1974-75,English First Division,7,1974-09-14,Birmingham City,Derby County,3,2,H
+69,1974-75,English First Division,7,1974-09-14,Stoke City,Coventry City,2,0,H
+70,1974-75,English First Division,7,1974-09-14,Sheffield United,Middlesbrough,1,0,H
+71,1974-75,English First Division,7,1974-09-14,Newcastle United,Carlisle United,1,0,H
+72,1974-75,English First Division,7,1974-09-14,Manchester City,Liverpool,2,0,H
+73,1974-75,English First Division,7,1974-09-14,Luton Town,Ipswich Town,1,4,A
+74,1974-75,English First Division,7,1974-09-14,Leicester City,Queens Park Rangers,3,1,H
+75,1974-75,English First Division,7,1974-09-14,Everton,Wolverhampton Wanderers,0,0,D
+76,1974-75,English First Division,7,1974-09-14,Chelsea,Arsenal,0,0,D
+77,1974-75,English First Division,7,1974-09-14,Tottenham Hotspur,West Ham United,2,1,H
+78,1974-75,English First Division,8,1974-09-21,Leeds United,Sheffield United,5,1,H
+79,1974-75,English First Division,8,1974-09-21,Arsenal,Luton Town,2,2,D
+80,1974-75,English First Division,8,1974-09-21,West Ham United,Leicester City,6,2,H
+81,1974-75,English First Division,8,1974-09-21,Queens Park Rangers,Newcastle United,1,2,A
+82,1974-75,English First Division,8,1974-09-21,Middlesbrough,Manchester City,3,0,H
+83,1974-75,English First Division,8,1974-09-21,Liverpool,Stoke City,3,0,H
+84,1974-75,English First Division,8,1974-09-21,Ipswich Town,Chelsea,2,0,H
+85,1974-75,English First Division,8,1974-09-21,Coventry City,Everton,1,1,D
+86,1974-75,English First Division,8,1974-09-21,Carlisle United,Birmingham City,1,0,H
+87,1974-75,English First Division,8,1974-09-21,Derby County,Burnley,3,2,H
+88,1974-75,English First Division,8,1974-09-21,Wolverhampton Wanderers,Tottenham Hotspur,2,3,A
+89,1974-75,English First Division,9,1974-09-24,Carlisle United,Manchester City,0,0,D
+90,1974-75,English First Division,9,1974-09-24,Wolverhampton Wanderers,Sheffield United,1,1,D
+91,1974-75,English First Division,9,1974-09-24,Queens Park Rangers,Everton,2,2,D
+92,1974-75,English First Division,9,1974-09-24,Liverpool,Burnley,0,1,A
+93,1974-75,English First Division,9,1974-09-24,Ipswich Town,Stoke City,3,1,H
+94,1974-75,English First Division,9,1974-09-24,Coventry City,Luton Town,2,1,H
+95,1974-75,English First Division,9,1974-09-25,Derby County,Chelsea,4,1,H
+96,1974-75,English First Division,9,1974-09-25,West Ham United,Birmingham City,3,0,H
+97,1974-75,English First Division,10,1974-09-28,Everton,Leeds United,3,2,H
+98,1974-75,English First Division,10,1974-09-28,Leicester City,Coventry City,0,1,A
+99,1974-75,English First Division,10,1974-09-28,Newcastle United,Ipswich Town,1,0,H
+100,1974-75,English First Division,10,1974-09-28,Tottenham Hotspur,Middlesbrough,1,2,A
+101,1974-75,English First Division,10,1974-09-28,Stoke City,Derby County,1,1,D
+102,1974-75,English First Division,10,1974-09-28,Manchester City,Queens Park Rangers,1,0,H
+103,1974-75,English First Division,10,1974-09-28,Chelsea,Wolverhampton Wanderers,0,1,A
+104,1974-75,English First Division,10,1974-09-28,Birmingham City,Arsenal,3,1,H
+105,1974-75,English First Division,10,1974-09-28,Sheffield United,Liverpool,1,0,H
+106,1974-75,English First Division,10,1974-09-28,Burnley,West Ham United,3,5,A
+107,1974-75,English First Division,10,1974-09-28,Luton Town,Carlisle United,3,1,H
